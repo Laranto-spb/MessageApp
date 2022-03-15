@@ -1,6 +1,5 @@
-<div class="ui container">
+
   <h1>Hello, <%= current_user.name %> </h1>
   <p>Let's start!</p>
 
-  <%= link_to "Home page", root_path, class: "ui primary button" %>
-</div>
+  <%= link_to "Chats", chat_rooms_url, class: "ui primary button" %>
