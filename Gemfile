@@ -27,6 +27,11 @@ gem 'jbuilder', '~> 2.5'
 
 # Modify console info to table
 gem 'hirb'
+
+# For semantic UI
+gem 'jquery-rails'
+gem 'semantic-ui-sass'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
