@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :chat_rooms
   post 'messages', to: 'messages#create'
   post 'chats', to: 'chat_rooms#create'
+
+  mount ActionCable.server, at: '/cable'
 end

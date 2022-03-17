@@ -1,3 +1,8 @@
 <h1>This is chat page</h1>
+<div class="ui segment chat-window">
+  <div class="ui comments" id="message-container">
+    <%= render @messages %>
+  </div>
+</div>
+<%= render 'messages/message_form' %>
 
-<%= render 'chat' %>

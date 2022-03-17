@@ -16,12 +16,13 @@ class ChatRoomsController < ApplicationController
   private
 
   def chats_list
-    @chats = current_user.chat_rooms.sort{|a,b| b.messages.last <=> a.messages.last }
+    @chats = current_user.chat_rooms.sort { |a, b| b.messages.last <=> a.messages.last }
   end
 
   def set_chat
-    @chat = ChatRoom.find(params[:id])
-    return if @chat.user_ids.include? current_user.id
+    chat = ChatRoom.find(params[:id])
+    @messages = chat.messages
+    return if chat.user_ids.include? current_user.id
 
     flash[:alert] = 'You must be the owner of this chat'
     redirect_to root_path

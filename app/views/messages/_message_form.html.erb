@@ -1,7 +1,7 @@
 <div class="ui form">
-<%= form_for :message, url: messages_path do |f| %>
+<%= form_for :message, url: messages_path, remote: true do |f| %>
   <div class="field">
-    <%= f.text_field :body %>
+    <%= f.text_field :body, placeholder: 'Enter you message here'%>
     <%= f.hidden_field :chat_room_id, value: params[:id] %>
   </div>
   <%= f.submit 'Send', class: 'ui primary button' %>
