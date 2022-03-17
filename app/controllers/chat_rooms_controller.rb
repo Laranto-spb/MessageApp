@@ -16,7 +16,7 @@ class ChatRoomsController < ApplicationController
   private
 
   def chats_list
-    @chats = current_user.chat_rooms
+    @chats = current_user.chat_rooms.sort{|a,b| b.messages.last <=> a.messages.last }
   end
 
   def set_chat
