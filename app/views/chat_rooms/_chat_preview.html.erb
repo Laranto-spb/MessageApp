@@ -1,11 +1,12 @@
 <div class="ui comments">
   <% @chats.each do |c| %>
+    <% if c.messages.any? %>
     <div class="comment">
       <a class="avatar">
         <img src="https://random.imagecdn.app/30/30">
       </a>
       <div class="content">
-        <a class="author" href="#"><%= User.find(c.messages.last.user_id).name %></a>
+        <a class="author" href="#"><%= User.find(c.messages.last.user_id).name == current_user.name ? 'Me' :  User.find(c.messages.last.user_id).name%></a>
         <div class="metadata">
           <span class="date"><%= time_ago_in_words(c.messages.last.created_at) %></span>
         </div>
@@ -17,5 +18,15 @@
         </div>
       </div>
     </div>
+      <% else %>
+      <div class="comment empty-preview-message">
+        <div class="text">
+          Empty...start conversation with
+        </div>
+        <div class="actions">
+          <%= link_to "See chat", chat_room_path(c.id), class: 'reply' %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>

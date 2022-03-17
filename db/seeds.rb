@@ -9,3 +9,5 @@
 #
 User.create(name: "John")
 User.create(name: "Tatiana")
+User.create(name: "Ivan")
+User.create(name: "Tamara")
